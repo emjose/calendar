@@ -1,4 +1,4 @@
-const availableWeekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const AVAILABLE_WEEK_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const localStorageName = 'calendar-events';
 
 class CALENDAR {
@@ -44,7 +44,7 @@ class CALENDAR {
 
     drawEvents() {
         let calendar = this.getCalendar();
-        let eventList = this.eventList[calendar.active.formatted] || ['There are no events'];
+        let eventList = this.eventList[calendar.active.formatted] || ['There is not any events'];
         let eventTemplate = "";
         eventList.forEach(item => {
             eventTemplate += `<li>${item}</li>`;
@@ -57,7 +57,7 @@ class CALENDAR {
         let calendar = this.getCalendar();
         this.elements.year.innerHTML = calendar.active.year;
         this.elements.currentDay.innerHTML = calendar.active.day;
-        this.elements.currentWeekDay.innerHTML = availableWeekDays[calendar.active.week];
+        this.elements.currentWeekDay.innerHTML = AVAILABLE_WEEK_DAYS[calendar.active.week];
     }
 
     drawDays() {
@@ -127,7 +127,7 @@ class CALENDAR {
 
     drawWeekDays() {
         let weekTemplate = "";
-        availableWeekDays.forEach(week => {
+        AVAILABLE_WEEK_DAYS.forEach(week => {
             weekTemplate += `<li>${week.slice(0, 3)}</li>`
         });
 
